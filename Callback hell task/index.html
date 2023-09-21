@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 48px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">10</div>
+    <script>
+        // Function to update the countdown timer
+        function updateCountdown(count) {
+            document.getElementById('countdown').innerText = count;
+            if (count === 0) {
+                document.getElementById('countdown').innerText = 'Happy Independence Day!';
+            }
+        }
+
+        // Countdown function
+        function countdown() {
+            let count = 10;
+            updateCountdown(count);
+
+            const countdownInterval = setInterval(() => {
+                count--;
+                updateCountdown(count);
+                if (count === 0) {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        // Start the countdown
+        countdown();
+    </script>
+</body>
+</html>
